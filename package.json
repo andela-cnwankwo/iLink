@@ -1,0 +1,22 @@
+{
+  "name": "ilink",
+  "version": "1.0.0",
+  "description": "A random phone number generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-cnwankwo/iLink.git"
+  },
+  "keywords": [
+    "phone-number-generator"
+  ],
+  "author": "Ethan Nwankwo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-cnwankwo/iLink/issues"
+  },
+  "homepage": "https://github.com/andela-cnwankwo/iLink#readme"
+}
