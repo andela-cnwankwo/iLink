@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "A random phone number generator",
   "main": "server.js",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-mocks": "^1.6.4"
+  },
   "scripts": {
+    "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
