@@ -1,1 +1,1 @@
-angular.module('iLink', []);
+angular.module('iLink', ['homePage']);
