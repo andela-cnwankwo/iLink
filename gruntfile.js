@@ -12,6 +12,9 @@ module.exports = (grunt) => {
                         files: [
                             'app/modules/angular.min.js',
                             'app/modules/angular-mocks.js',
+                            "public/pages/home-page/home-page.module.js",
+                            "public/index.js",
+                            "public/**/*.js",
                             'test/unit/**/*.js'
                         ]
                 }
