@@ -49,7 +49,7 @@ angular.module('iLink')
    * @param {object} done callback
    */
   this.getPhoneNumbers = (entryId, done) => {
-    const getUrl = `${baseApiUrl}/getNumber/${id}`;
+    const getUrl = `${baseApiUrl}/getNumber/${entryId}`;
     const req = {
       method: 'GET',
       url: getUrl

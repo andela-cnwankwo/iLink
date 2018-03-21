@@ -35,7 +35,7 @@ angular.module('homePage')
          * GetPhoneNumbers
          */
         this.getPhoneNumbers = (entryId) => {
-          HomepageService.getPhoneNumber(entryId, response => {
+          HomepageService.getPhoneNumbers(entryId, response => {
             //
           });
         }
@@ -44,8 +44,8 @@ angular.module('homePage')
          * sortPhoneNumbers
          * @param {order} (optional) can be specified as 'desc'
          */
-        this.sortPhoneNumbers = (order) => {
-            return args.sort((phoneNumber1, phoneNumber2) => {
+        this.sortPhoneNumbers = (phoneNumbers, order) => {
+            return phoneNumbers.sort((phoneNumber1, phoneNumber2) => {
                 return (order === 'desc') ? phoneNumber2 - phoneNumber1 : phoneNumber1 - phoneNumber2;
             });
         }
@@ -78,5 +78,7 @@ angular.module('homePage')
 
         // Load already generated phone numbers
         this.loadPhoneNumberIds();
+
+        return this;
     }
 })
