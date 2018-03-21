@@ -1,22 +1,11 @@
 module.exports = (grunt) => {
-    grunt.loadNpmTasks('grunt-karma');
-    const karmaBrowser = grunt.option('browser') || 'Chrome';
+    require('load-grunt-tasks')(grunt);
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         karma: {
             unit: {
                 options: {
-                        browsers: [karmaBrowser],
-                        frameworks: ['jasmine'],
-                        singleRun: true,
-                        files: [
-                            'app/modules/angular.min.js',
-                            'app/modules/angular-mocks.js',
-                            "public/pages/home-page/home-page.module.js",
-                            "public/index.js",
-                            "public/**/*.js",
-                            'test/unit/**/*.js'
-                        ]
+                        configFile: 'karma.conf.js'
                 }
             }
         }
