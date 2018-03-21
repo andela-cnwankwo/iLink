@@ -34,8 +34,10 @@ angular.module('homePage')
         /**
          * GetPhoneNumbers
          */
-        this.getPhoneNumbers = () => {
-            return this.phoneNumbers;
+        this.getPhoneNumbers = (entryId) => {
+          HomepageService.getPhoneNumber(entryId, response => {
+            //
+          });
         }
 
         /**
@@ -43,8 +45,8 @@ angular.module('homePage')
          * @param {order} (optional) can be specified as 'desc'
          */
         this.sortPhoneNumbers = (order) => {
-            return args.sort((obj1, obj2) => {
-                return (order === 'desc') ? obj2 - obj1 : obj1 - obj2;
+            return args.sort((phoneNumber1, phoneNumber2) => {
+                return (order === 'desc') ? phoneNumber2 - phoneNumber1 : phoneNumber1 - phoneNumber2;
             });
         }
 
@@ -54,16 +56,27 @@ angular.module('homePage')
         this.savePhoneNumbers = () => {
             HomepageService.savePhoneNumbers(this.phoneNumbers, (response) => {
               //
+              this.loadPhoneNumberIds();
             });
         }
 
         /**
          * loadPhoneNumbers
          */
-        this.loadPhoneNumbers = () => {
-            HomepageService.getPhoneNumbers(response => {
-              //
+        this.loadPhoneNumberIds = () => {
+            HomepageService.loadPhoneNumberIds(response => {
+              this.phoneNumbersData = [];
+              // Update phone numbers object
+              response.data.forEach(entryId => {
+                let entryDetail = {};
+                entryDetail.id = entryId;
+                entryDetail.date = Date(entryId);
+                this.phoneNumbersData.push(entryDetail);
+              })
             });
         }
+
+        // Load already generated phone numbers
+        this.loadPhoneNumberIds();
     }
 })

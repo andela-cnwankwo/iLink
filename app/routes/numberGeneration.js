@@ -1,4 +1,5 @@
 const savePhoneNumbers = require('../controllers/numberGeneration').savePhoneNumbers;
+const getPhoneNumberEntryIds = require('../controllers/numberGeneration').getPhoneNumberEntryIds;
 const getPhoneNumbers = require('../controllers/numberGeneration').getPhoneNumbers;
 
 const numberGenerationRoute = (router) => {
@@ -7,7 +8,11 @@ const numberGenerationRoute = (router) => {
             .post(savePhoneNumbers);
   
     // get numbers route
-    router.route('/getNumbers')
+    router.route('/getNumberIds')
+            .get(getPhoneNumberEntryIds);
+
+    // get numbers route
+    router.route('/getNumbers/:id')
             .get(getPhoneNumbers);
   };
   

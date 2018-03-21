@@ -25,16 +25,15 @@ angular.module('iLink')
     };
 
   /**
-   * getPhoneNumbers
+   * loadPhoneNumberIds
    * @param {object} data
    * @param {object} done callback
    */
-    this.getPhoneNumbers = (data, done) => {
-        const getUrl = `${baseApiUrl}/getNumbers`;
+    this.loadPhoneNumberIds = (done) => {
+        const getUrl = `${baseApiUrl}/getNumberIds`;
         const req = {
           method: 'GET',
-          url: getUrl,
-          data
+          url: getUrl
         };
   
         $http(req).then((response) => {
@@ -43,6 +42,25 @@ angular.module('iLink')
             done(err);
         });
       };
+
+  /**
+   * getPhoneNumber
+   * @param {object} entryId
+   * @param {object} done callback
+   */
+  this.getPhoneNumbers = (entryId, done) => {
+    const getUrl = `${baseApiUrl}/getNumber/${id}`;
+    const req = {
+      method: 'GET',
+      url: getUrl
+    };
+
+    $http(req).then((response) => {
+        done(response);
+    }, (err) => {
+        done(err);
+    });
+  };
 
     return this;
   }]);
