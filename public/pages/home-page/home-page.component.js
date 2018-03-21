@@ -1,7 +1,7 @@
 angular.module('homePage')
 .component('homePage', {
     templateUrl: 'pages/home-page/home-page.template.html',
-    controller: function HomePageController($scope, $window) {
+    controller: function HomePageController($http, HomepageService) {
         this.phoneNumbers = [];
         this.phoneNumbersData = [];
         this.currentPhoneNumber = [];
@@ -27,8 +27,8 @@ angular.module('homePage')
             }
             this.phoneNumbers = randomNumbers;
             
-            // Return true if random numbers are up to number expected and false otherwise
-            return randomNumbers.length === limit;
+            //Save generated numbers
+            this.savePhoneNumbers();
         }
 
         /**
@@ -50,16 +50,20 @@ angular.module('homePage')
 
         /**
          * savePhoneNumbers
-         * 
          */
         this.savePhoneNumbers = () => {
+            HomepageService.savePhoneNumbers(this.phoneNumbers, (response) => {
+              //
+            });
         }
 
         /**
          * loadPhoneNumbers
-         * 
          */
         this.loadPhoneNumbers = () => {
+            HomepageService.getPhoneNumbers(response => {
+              //
+            });
         }
     }
 })
