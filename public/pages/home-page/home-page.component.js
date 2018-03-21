@@ -36,7 +36,6 @@ angular.module('homePage')
          */
         this.getPhoneNumbers = (entryId) => {
           HomepageService.getPhoneNumbers(entryId, response => {
-            //
           });
         }
 
@@ -55,7 +54,7 @@ angular.module('homePage')
          */
         this.savePhoneNumbers = () => {
             HomepageService.savePhoneNumbers(this.phoneNumbers, (response) => {
-              //
+              // Load ids after saving
               this.loadPhoneNumberIds();
             });
         }
