@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/andela-cnwankwo/iLink.svg?branch=development)](https://travis-ci.org/andela-cnwankwo/iLink)
-
 # iLink
 iLink - Phone Number Generation Service
+
+[![Build Status](https://travis-ci.org/andela-cnwankwo/iLink.svg?branch=development)](https://travis-ci.org/andela-cnwankwo/iLink)
 
 ### Introduction
 This service provides an easy way to generate random phone numbers in json format from a simple UI interface
@@ -23,10 +23,13 @@ To be able to use the application locally, the following are required:
 - (optional) Karma can also be installed globally for easier access to the test by running `npm install -g karma-cli`
 
 ### How To Test
-This application can be test locally by running `npm test`
+This application can be tested locally by running `npm test`
 
 ### How To Contribute
 To contribute, fork this repository, make required changes and open a pull request.
+
+### Roadmap
+[Project Roadmap](https://trello.com/b/m2PdAV4T/ilink)
 
 ### Contributors
 - [Ethan Nwankwo](https://github.com/andela-cnwankwo)
