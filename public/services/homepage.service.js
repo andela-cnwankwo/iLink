@@ -26,7 +26,6 @@ angular.module('iLink')
 
   /**
    * loadPhoneNumberIds
-   * @param {object} data
    * @param {object} done callback
    */
     this.loadPhoneNumberIds = (done) => {
@@ -49,10 +48,49 @@ angular.module('iLink')
    * @param {object} done callback
    */
   this.getPhoneNumbers = (entryId, done) => {
-    const getUrl = `${baseApiUrl}/getNumber/${entryId}`;
+    const getUrl = `${baseApiUrl}/getNumbers/${entryId}`;
     const req = {
       method: 'GET',
       url: getUrl
+    };
+
+    $http(req).then((response) => {
+        done(response);
+    }, (err) => {
+        done(err);
+    });
+  };
+
+  /**
+   * updatePhoneNumbers
+   * @param {object} updateData
+   * @param {object} done callback
+   */
+  this.updatePhoneNumbers = (updateData, done) => {
+    const updateUrl = `${baseApiUrl}/updatePhoneNumbers/${updateData.entryId}`;
+    const req = {
+      method: 'PUT',
+      url: updateUrl,
+      data: updateData.data
+    };
+
+    $http(req).then((response) => {
+        done(response);
+    }, (err) => {
+        done(err);
+    });
+  };
+
+  /**
+   * deleteEntry
+   * @param {object} entryId
+   * @param {object} done callback
+   */
+  this.deleteEntry = (entryId, done) => {
+    const deleteUrl = `${baseApiUrl}/deletePhoneNumbers/${entryId}`;
+    const req = {
+      method: 'DELETE',
+      url: deleteUrl
     };
 
     $http(req).then((response) => {

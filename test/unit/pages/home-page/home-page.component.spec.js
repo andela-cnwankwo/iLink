@@ -8,15 +8,18 @@ describe('HomePage', () => {
         spyOn(homepageService, 'savePhoneNumbers');
         spyOn(homepageService, 'loadPhoneNumberIds');
         spyOn(homepageService, 'getPhoneNumbers');
+        spyOn(homepageService, 'updatePhoneNumbers');
+        spyOn(homepageService, 'deleteEntry');
     }));
 
-    it('should have initial values', () => {
+    it('should have initial default values', () => {
         expect(ctrl.phoneNumbers).toEqual([]);
         expect(ctrl.phoneNumbersData).toEqual([]);
-        expect(ctrl.currentPhoneNumber).toEqual([]);
+        expect(ctrl.sortOrder).toEqual('desc');
     });
 
     it('should handle generateNumbers method', () => {
+        expect(ctrl.phoneNumbers.length > 0).toEqual(false);
         ctrl.generateNumbers();
         expect(ctrl.phoneNumbers.length > 0).toEqual(true);
     });
@@ -44,5 +47,22 @@ describe('HomePage', () => {
     it('should handle getPhoneNumbers method', () => {
         ctrl.getPhoneNumbers(1);
         expect(homepageService.getPhoneNumbers).toHaveBeenCalled();
+    });
+
+    it('should handle sortNumbers method', () => {
+        ctrl.sortOrder = 'desc';
+        ctrl.sortNumbers(1);
+        expect(homepageService.getPhoneNumbers).toHaveBeenCalled();
+        expect(ctrl.sortOrder).toEqual('asc');
+    });
+
+    it('should handle updatePhoneNumbers method', () => {
+        ctrl.updatePhoneNumbers();
+        expect(homepageService.updatePhoneNumbers).toHaveBeenCalled();
+    });
+
+    it('should handle deleteEntry method', () => {
+        ctrl.deleteEntry(1);
+        expect(homepageService.deleteEntry).toHaveBeenCalled();
     });
 })
