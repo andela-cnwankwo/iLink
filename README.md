@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/andela-cnwankwo/iLink.svg?branch=development)](https://travis-ci.org/andela-cnwankwo/iLink)
-
 # iLink
 iLink - Phone Number Generation Service
+
+[![Build Status](https://travis-ci.org/andela-cnwankwo/iLink.svg?branch=development)](https://travis-ci.org/andela-cnwankwo/iLink)
 
 ### Introduction
 This service provides an easy way to generate random phone numbers in json format from a simple UI interface
