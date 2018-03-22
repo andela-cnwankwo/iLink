@@ -23,7 +23,7 @@ describe('HomePage', () => {
     });
 
     it('should handle a getPhoneNumbers method', () => {
-        mockBackend.expectGET(`${baseUrl}/getNumber/1`).respond(200, Object({
+        mockBackend.expectGET(`${baseUrl}/getNumbers/1`).respond(200, Object({
         }));
         homepageService.getPhoneNumbers(1, () => {});
         mockBackend.flush();
