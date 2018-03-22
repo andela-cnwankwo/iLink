@@ -1,0 +1,14 @@
+language: node_js
+
+node_js:
+  - node
+
+script:
+  - npm test
+
+sudo: required
+
+addons:
+  chrome: stable
+
+before_install: npm install -g grunt-cli

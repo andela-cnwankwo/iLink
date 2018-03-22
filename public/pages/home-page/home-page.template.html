@@ -1,0 +1,40 @@
+<div>
+    <section><center>
+        <div style="margin-left: 10%; margin-right: 10%;" class="jumbotron">
+            <h1 class="display-3">iLink!</h1>
+            <p class="lead">This is a random phone number generation service.</p>
+            <hr class="my-4">
+            <p>You can also sort generated phone numbers in ascending or descending order.</p>
+            <p class="lead">
+                <button class="btn btn-primary btn-lg" ng-click="$ctrl.generateNumbers()" role="button">Generate Numbers</button>
+            </p>
+        </div>
+        <!--  Table -->
+        <div ng-if="$ctrl.phoneNumbersData.length > 0" style="margin-left: 20%; margin-right: 20%;">
+            <br>
+            <h3>Records</h3>
+            <br>
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="entry in $ctrl.phoneNumbersData">
+                            <td>{{entry.id}}</td>
+                            <td>{{entry.date}}</td>
+                            <td>
+                                <a role="button" class="btn" target="_blank" href="data/{{entry.id}}.json">View</a>
+                                <a role="button" class="btn" ng-click="$ctrl.sortNumbers(entry.id)">Sort</a>
+                                <a role="button" class="btn" ng-click="$ctrl.deleteEntry(entry.id)">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </center>
+    </section>
+</div>
