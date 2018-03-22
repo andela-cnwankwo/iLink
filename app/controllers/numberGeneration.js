@@ -110,9 +110,29 @@ function updatePhoneNumbers(req, res) {
     }
 }
 
+/**
+ * deletePhoneNumbers
+* @param {object} req object http request object
+* @param {object} res object http response object
+* @return {object} object http response
+ */
+function deletePhoneNumbers(req, res) {
+    //Get a specific phone number
+    const id = req.params.id;
+    fs.readFile(`${dataPath}/${id}.json`, (err, data) => {
+        if (!err) {
+            fs.unlinkSync(`${dataPath}/${id}.json`);
+            return res.status(200).send(data);
+        } else {
+            return res.status(500).send({ message: err.message });
+        }
+    })
+}
+
 module.exports = {
     savePhoneNumbers,
     getPhoneNumberEntryIds,
     getPhoneNumbers,
-    updatePhoneNumbers
+    updatePhoneNumbers,
+    deletePhoneNumbers
 };

@@ -99,6 +99,15 @@ angular.module('homePage')
             });
         }
 
+        /**
+         * deleteEntry
+         */
+        this.deleteEntry = (entryId) => {
+          HomepageService.deleteEntry(entryId, response => {
+            this.loadPhoneNumberIds();
+          });
+      }
+
         // Load already generated phone numbers
         this.loadPhoneNumberIds();
 

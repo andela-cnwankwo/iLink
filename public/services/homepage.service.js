@@ -68,11 +68,30 @@ angular.module('iLink')
    * @param {object} done callback
    */
   this.updatePhoneNumbers = (updateData, done) => {
-    const getUrl = `${baseApiUrl}/updatePhoneNumbers/${updateData.entryId}`;
+    const updateUrl = `${baseApiUrl}/updatePhoneNumbers/${updateData.entryId}`;
     const req = {
       method: 'PUT',
-      url: getUrl,
+      url: updateUrl,
       data: updateData.data
+    };
+
+    $http(req).then((response) => {
+        done(response);
+    }, (err) => {
+        done(err);
+    });
+  };
+
+  /**
+   * deleteEntry
+   * @param {object} entryId
+   * @param {object} done callback
+   */
+  this.deleteEntry = (entryId, done) => {
+    const deleteUrl = `${baseApiUrl}/deletePhoneNumbers/${entryId}`;
+    const req = {
+      method: 'DELETE',
+      url: deleteUrl
     };
 
     $http(req).then((response) => {
