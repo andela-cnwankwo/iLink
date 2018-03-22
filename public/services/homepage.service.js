@@ -49,10 +49,30 @@ angular.module('iLink')
    * @param {object} done callback
    */
   this.getPhoneNumbers = (entryId, done) => {
-    const getUrl = `${baseApiUrl}/getNumber/${entryId}`;
+    const getUrl = `${baseApiUrl}/getNumbers/${entryId}`;
     const req = {
       method: 'GET',
       url: getUrl
+    };
+
+    $http(req).then((response) => {
+        done(response);
+    }, (err) => {
+        done(err);
+    });
+  };
+
+  /**
+   * updatePhoneNumbers
+   * @param {object} entryId
+   * @param {object} done callback
+   */
+  this.updatePhoneNumbers = (updateData, done) => {
+    const getUrl = `${baseApiUrl}/updatePhoneNumbers/${updateData.entryId}`;
+    const req = {
+      method: 'PUT',
+      url: getUrl,
+      data: updateData.data
     };
 
     $http(req).then((response) => {

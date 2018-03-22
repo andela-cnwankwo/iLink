@@ -5,6 +5,7 @@ angular.module('homePage')
         this.phoneNumbers = [];
         this.phoneNumbersData = [];
         this.currentPhoneNumber = [];
+        this.sortOrder = 'desc';
 
         /**
          * GenerateNumbers
@@ -12,7 +13,7 @@ angular.module('homePage')
         this.generateNumbers = () => {
             // Instantiate an empty array and define the number of random phone numbers we need
             const randomNumbers = [];
-            const limit = 100;
+            const limit = 10;
             let i = 1;
             // generate random phone numbers of 9 digits up to the limit
             while (i < limit) {
@@ -40,6 +41,21 @@ angular.module('homePage')
         }
 
         /**
+         * sortNumbers
+         */
+        this.sortNumbers = (entryId) => {
+          this.sortOrder = (this.sortOrder === 'desc') ? 'asc' : 'desc';
+          HomepageService.getPhoneNumbers(entryId, response => {
+            const sortedNumbers = this.sortPhoneNumbers(response.data.data, this.sortOrder);
+            const updateData = {
+              entryId,
+              data: sortedNumbers
+            }
+            this.updatePhoneNumbers(updateData);
+          });
+        }
+
+        /**
          * sortPhoneNumbers
          * @param {order} (optional) can be specified as 'desc'
          */
@@ -58,6 +74,14 @@ angular.module('homePage')
               this.loadPhoneNumberIds();
             });
         }
+
+        /**
+         * updatePhoneNumbers
+         */
+        this.updatePhoneNumbers = (updateData) => {
+          HomepageService.updatePhoneNumbers(updateData, (response) => {
+          });
+      }
 
         /**
          * loadPhoneNumbers
