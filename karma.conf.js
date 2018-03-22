@@ -34,6 +34,12 @@ module.exports = function(config) {
     preprocessors: {
     },
 
+    plugins:[
+      'karma-jasmine',
+      'karma-coverage',
+      'karma-chrome-launcher'
+    ],
+
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -75,7 +81,7 @@ module.exports = function(config) {
     coverageReporter: {
       reporters: [{
           type: 'json',
-          dir: 'build/test/json'
+          dir: 'coverage/'
       }]
   },
 

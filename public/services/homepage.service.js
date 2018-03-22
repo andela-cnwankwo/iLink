@@ -26,7 +26,6 @@ angular.module('iLink')
 
   /**
    * loadPhoneNumberIds
-   * @param {object} data
    * @param {object} done callback
    */
     this.loadPhoneNumberIds = (done) => {
@@ -64,7 +63,7 @@ angular.module('iLink')
 
   /**
    * updatePhoneNumbers
-   * @param {object} entryId
+   * @param {object} updateData
    * @param {object} done callback
    */
   this.updatePhoneNumbers = (updateData, done) => {

@@ -28,4 +28,21 @@ describe('HomePage', () => {
         homepageService.getPhoneNumbers(1, () => {});
         mockBackend.flush();
     });
+
+    it('should handle a updatePhoneNumbers method', () => {
+        const updateData = {
+            entryId: 1
+        }
+        mockBackend.expectPUT(`${baseUrl}/updatePhoneNumbers/1`).respond(200, Object({
+        }));
+        homepageService.updatePhoneNumbers(updateData, () => {});
+        mockBackend.flush();
+    });
+
+    it('should handle a deleteEntry method', () => {
+        mockBackend.expectDELETE(`${baseUrl}/deletePhoneNumbers/1`).respond(200, Object({
+        }));
+        homepageService.deleteEntry(1, () => {});
+        mockBackend.flush();
+    });
 })
