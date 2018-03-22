@@ -6,6 +6,13 @@
             <hr class="my-4">
             <p>You can also sort generated phone numbers in ascending or descending order.</p>
             <p class="lead">
+                <div class="row">
+                <div class="form-group col-lg-4 col-lg-offset-4">
+                        <label class="col-form-label col-form-label-sm" for="inputSmall">Min: 2, Max: 5000</label>
+                        <input style="text-align: center" class="form-control form-control-sm" ng-model="$ctrl.phoneNumberLimit" type="number" min="2" max="5000" placeholder="Numbers To Generate" id="inputSmall">
+                      </div>
+                    </div>
+                <br /><br />
                 <button class="btn btn-primary btn-lg" ng-click="$ctrl.generateNumbers()" role="button">Generate Numbers</button>
             </p>
         </div>

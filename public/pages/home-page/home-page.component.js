@@ -4,8 +4,8 @@ angular.module('homePage')
     controller: function HomePageController($http, HomepageService) {
         this.phoneNumbers = [];
         this.phoneNumbersData = [];
-        this.currentPhoneNumber = [];
         this.sortOrder = 'desc';
+        this.phoneNumberLimit = 100;
 
         /**
          * GenerateNumbers
@@ -13,8 +13,14 @@ angular.module('homePage')
         this.generateNumbers = () => {
             // Instantiate an empty array and define the number of random phone numbers we need
             const randomNumbers = [];
-            const limit = 10;
-            let i = 1;
+            let limit = 10;
+
+            // Ensure specified limit is valid
+            if(angular.isDefined(this.phoneNumberLimit)) {
+              limit = this.phoneNumberLimit
+            }
+
+            let i = 0;
             // generate random phone numbers of 9 digits up to the limit
             while (i < limit) {
                 let numberLength = 100000000;
