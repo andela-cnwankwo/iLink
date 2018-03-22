@@ -28,5 +28,8 @@ This application can be tested locally by running `npm test`
 ### How To Contribute
 To contribute, fork this repository, make required changes and open a pull request.
 
+### Roadmap
+[Project Roadmap](https://trello.com/b/m2PdAV4T/ilink)
+
 ### Contributors
 - [Ethan Nwankwo](https://github.com/andela-cnwankwo)
