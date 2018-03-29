@@ -56,14 +56,16 @@ function savePhoneNumbers(req, res) {
 function getPhoneNumberEntryIds(req, res) {
     let allFiles = [];
     fs.readdir(dataPath, (err, files) => {
-        files.forEach(file => {
-        // Remove the file extention and push the id
-        allFiles.push(file.slice(0, -5))
-        });
-        if (!err) {
-            return res.status(200).send(allFiles);
-        } else {
-            return res.status(500).send({ message: err.message });
+        if(!err) {
+            files.forEach(file => {
+                // Remove the file extention and push the id
+                allFiles.push(file.slice(0, -5))
+                });
+                if (!err) {
+                    return res.status(200).send(allFiles);
+                } else {
+                    return res.status(500).send({ message: err.message });
+                }
         }
       })
 }
